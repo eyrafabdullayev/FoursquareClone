@@ -66,25 +66,17 @@ class LocationActivity : AppCompatActivity(), RecyclerViewAdapter.Listener {
                         placeList.add(place)
                     }
                 }
+                
+                recyclerViewAdapter =
+                    RecyclerViewAdapter(
+                        placeList,
+                        this,
+                        this
+                    )
+
+                recyclerView.adapter = recyclerViewAdapter
             }
         }
-
-        //if there is not any place object in the placeList array
-        placeList.add(
-            PlaceModel(
-                "Titanic",
-                "Bar",
-                "Friendly"
-            )
-        )
-
-        recyclerViewAdapter =
-            RecyclerViewAdapter(
-                placeList,
-                this,
-                this
-            )
-        recyclerView.adapter = recyclerViewAdapter
     }
 
     override fun onItemClick(place: PlaceModel) {
